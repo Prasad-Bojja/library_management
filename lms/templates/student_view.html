@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block start %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <form action="" method='POST'>
+{% csrf_token %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-12 col-md-10 col-sm-12 col-xs-12">
+            <div class="card shadow rounded-0">
+                <div class="card-header">
+                    <div class="h5 card-title fw-bold">Student Details</div>
+                </div>
+                
+                <div class="card-body">
+                    <div class="container-fluid">
+                        
+                        <div class="row">
+                            <div class="col-md-14">
+                                <div class="mb-3">
+                                    <label for="email" class="control-label"><h5>Student ID: </h5></label>
+                                    {{details.code}}
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="id" class="control-label"><h5>Student Name: </h5> </label>
+                                    {{details.first_name}}
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="name" class="control-label"><h5>Gender: </h5> </label>
+                                    {{details.gender}}
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="Description" class="control-label"><h5>Department: </h5></label>
+                                    {{details.department}}
+                                </div>
+
+                                
+                                    
+                                <div class="mb-3">
+                                        <label for="name" class="control-label"><h5>Course: </h5></label>
+                                        {{details.course}}
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="name" class="control-label"><h5>Contact: </h5></label>
+                                        {{details.contact}}
+                                    </div>
+            
+                             
+                                
+
+                                <div class="mb-3">
+                                    <label for="name" class="control-label"><h5>Email: </h5></label>
+                                    {{details.email}}
+
+                                </div>
+				                      <div class="mb-3">
+                                    <label for="name" class="control-label"><h5>Address: </h5></label>
+                                    {{details.address}}
+
+                                </div>
+
+                                <div class="mb-3">
+                                    <h5><label for="status" class="control-label">Status: </label></h5>
+                                {% if details.status == 'Active' %}
+                    			<span class="badge badge-success bg-gradient bg-success px-3 rounded-pill bg-opacity-75 text-sm py-1">Active</span>
+                    			{% else %}
+                    		<span class="badge badge-secondary bg-gradient bg-secondary px-3 rounded-pill bg-opacity-75 text-sm py-1">Inactive</span>
+                    		{% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex w-100 text-end justify-content-end">
+                        <a href="{% url 'student_list' %}" class="btn btn-secondary">Close</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+</body>
+</html>
+
+</body>
+</html>
+
+
+{% endblock start %}
+
